@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from "axios";
-import Card from "./components/Card";
+import User from "./components/User";
 
 class App extends React.Component{
   state = {
@@ -22,7 +22,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <Card meObject={this.state.gitHubUserData}/>
+        <User meObject={this.state.gitHubUserData}/>
       </div>
     );
   }
