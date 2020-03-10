@@ -1,14 +1,32 @@
 import React from 'react';
 import './App.css';
-import {Button} from "reactstrap";
+import axios from "axios";
+import Card from "./components/Card";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>GitHub Usercard</h1>
-      <Button color="danger">danger</Button>{' '}
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    gitHubUserData: {}
+  };
+  componentDidMount() {
+    axios
+      .get("https://api.github.com/users/David-E-Alvarez")
+      .then(res => {
+        //res.data.message
+        console.log("res.data: ", res.data)
+        this.setState({
+          gitHubUserData: res.data
+        });
+      })
+      .catch(err => console.log(err.message));
+  }
+  render(){
+    return (
+      <div className="App">
+        <Card meObject={this.state.gitHubUserData}/>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
