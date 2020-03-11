@@ -31,7 +31,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <User meObject={this.state.gitHubUserData}/>
+        {/* <User meObject={this.state.gitHubUserData}/> */}
         <UserFollowers key={this.state.gitHubUserFollowerData} followerArray={this.state.gitHubUserFollowerData}/>
       </div>
     );
